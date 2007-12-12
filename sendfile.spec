@@ -1,7 +1,7 @@
 Summary:	Asynchronous file transfer service
 Name:		sendfile
 Version:	2.1a
-Release:	2mdk
+Release:	%mkrel 2
 License:	GPL
 Group:		Networking/File transfer
 URL:		http://www.belwue.de/projekte/saft/sendfile.html
