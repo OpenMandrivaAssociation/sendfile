@@ -8,6 +8,7 @@ URL:		http://www.belwue.de/projekte/saft/sendfile.html
 Source:		%{name}-%{version}.tar.bz2
 Source1:	sendfile-xinetd
 Requires:	xinetd
+BuildRequires: readline-devel
 
 %description
 Sendfile is an asynchronous file transfer service for the Internet, like the
