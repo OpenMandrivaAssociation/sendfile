@@ -7,6 +7,7 @@ Group:		Networking/File transfer
 URL:		http://www.belwue.de/projekte/saft/sendfile.html
 Source:		%{name}-%{version}.tar.bz2
 Source1:	sendfile-xinetd
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	xinetd
 BuildRequires: readline-devel
 
