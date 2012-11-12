@@ -1,0 +1,26 @@
+Index: src/sendmsg.c
+===================================================================
+--- src/sendmsg.c
++++ src/sendmsg.c	2010-02-24 10:24:11.000000000 +0100
+@@ -333,7 +333,7 @@
+ 	      
+ 	      /* mark current tty as active for receiving */
+ 	      if ((outf=rfopen(msgcf,"w"))) {
+-		fprintf(outf,tty);
++		fprintf(outf,"%s", tty);
+ 		fclose(outf);
+ 	      }
+ 	      
+Index: src/receive.c
+===================================================================
+--- src/receive.c
++++ src/receive.c	2010-02-24 10:26:50.000000000 +0100
+@@ -968,7 +968,7 @@
+     /* loop over all files in tar archive */
+     while (fgetl(line,pp)) {
+       /* convert tar file name with escaped chars */
+-      sprintf(fname,line);
++      sprintf(fname, "%s", line);
+      
+       /* does the file already exist? */
+       if ((cp=strchr(fname,'\n'))) *cp=0;
