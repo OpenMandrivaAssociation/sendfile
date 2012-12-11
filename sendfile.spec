@@ -81,3 +81,40 @@ service xinetd reload
 %config(noreplace) %_sysconfdir/xinetd.d/*
 %_mandir/*/*
 
+
+
+%changelog
+* Tue Dec 07 2010 Oden Eriksson <oeriksson@mandriva.com> 2.1b-2mdv2011.0
++ Revision: 614841
+- the mass rebuild of 2010.1 packages
+
+  + Sandro Cazzaniga <kharec@mandriva.org>
+    - patch sent upstream
+
+* Wed Feb 24 2010 Sandro Cazzaniga <kharec@mandriva.org> 2.1b-1mdv2010.1
++ Revision: 510529
+- Fix license
+- Update to 2.1b
+- Add a patch for fix strings format during compilation
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Tue Jul 22 2008 Thierry Vignaud <tv@mandriva.org> 2.1a-3mdv2009.0
++ Revision: 240072
+- rebuild
+- BR readline-devel
+- kill re-definition of %%buildroot on Pixel's request
+- use %%mkrel
+- import sendfile
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+
+* Thu Jan 20 2005 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 2.1a-2mdk
+- rebuild for new readline
+- compile with $RPM_OPT_FLAGS
+
+* Mon Feb 02 2004 Michael Reinsch <mr@uue.org> 2.1a-1mdk
+- initial spec file for mandrake

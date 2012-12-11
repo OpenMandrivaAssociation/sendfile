@@ -1,0 +1,14 @@
+# default: on
+# description: asynchronous file transfer service
+
+service saft
+{
+	disable         = no
+        socket_type     = stream
+        protocol	= tcp
+        wait            = no
+        user            = root
+        group           = root
+        server          = /usr/sbin/sendfiled
+        log_type        = SYSLOG daemon info
+}
