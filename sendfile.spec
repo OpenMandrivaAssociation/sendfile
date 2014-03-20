@@ -1,7 +1,9 @@
+%define debug_package %{nil}
+
 Summary:	Asynchronous file transfer service
 Name:		sendfile
 Version:	2.1b
-Release:	%mkrel 2
+Release:	3
 License:	GPLv2
 Group:		Networking/File transfer
 URL:		http://www.belwue.de/projekte/saft/sendfile.html
@@ -9,7 +11,6 @@ Source:		%{name}-%{version}.tar.bz2
 Source1:	sendfile-xinetd
 #patch0 sent upstream (Kharec)
 Patch0:		sendfile-2.1b-fix-str-fmt.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	xinetd
 BuildRequires:	readline-devel
 
@@ -34,11 +35,9 @@ The sendfile package contains 5 main programs:
 %setup -q
 %patch0 -p0
 %build
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make CFLAGS="%{optflags}"
 
 %install
-rm -rf %buildroot
-
 # install isn't good, so we do it by hand...
 %__install -d %buildroot/%_sbindir
 %__install src/sendfiled %buildroot/%_sbindir/
@@ -56,9 +55,6 @@ rm -rf %buildroot
 %__install src/{sendfile,sendmsg,receive,fetchfile,utf7encode,wlock} %buildroot/%_bindir/
 ln -s utf7encode %buildroot/%_bindir/utf7decode
 %__install etc/{sfconf,sfdconf} %buildroot/%_bindir/
-
-%clean
-rm -rf %buildroot
 
 %post
 service xinetd reload
@@ -80,41 +76,3 @@ service xinetd reload
 %config(noreplace) %_sysconfdir/profile.d/*
 %config(noreplace) %_sysconfdir/xinetd.d/*
 %_mandir/*/*
-
-
-
-%changelog
-* Tue Dec 07 2010 Oden Eriksson <oeriksson@mandriva.com> 2.1b-2mdv2011.0
-+ Revision: 614841
-- the mass rebuild of 2010.1 packages
-
-  + Sandro Cazzaniga <kharec@mandriva.org>
-    - patch sent upstream
-
-* Wed Feb 24 2010 Sandro Cazzaniga <kharec@mandriva.org> 2.1b-1mdv2010.1
-+ Revision: 510529
-- Fix license
-- Update to 2.1b
-- Add a patch for fix strings format during compilation
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-
-* Tue Jul 22 2008 Thierry Vignaud <tv@mandriva.org> 2.1a-3mdv2009.0
-+ Revision: 240072
-- rebuild
-- BR readline-devel
-- kill re-definition of %%buildroot on Pixel's request
-- use %%mkrel
-- import sendfile
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-
-* Thu Jan 20 2005 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 2.1a-2mdk
-- rebuild for new readline
-- compile with $RPM_OPT_FLAGS
-
-* Mon Feb 02 2004 Michael Reinsch <mr@uue.org> 2.1a-1mdk
-- initial spec file for mandrake
