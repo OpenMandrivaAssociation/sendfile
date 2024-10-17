@@ -6,7 +6,7 @@ Version:	2.1b
 Release:	4
 License:	GPLv2
 Group:		Networking/File transfer
-URL:		http://www.belwue.de/projekte/saft/sendfile.html
+URL:		https://www.belwue.de/projekte/saft/sendfile.html
 Source:		%{name}-%{version}.tar.bz2
 Source1:	sendfile-xinetd
 #patch0 sent upstream (Kharec)
