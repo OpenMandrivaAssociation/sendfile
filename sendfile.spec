@@ -12,6 +12,7 @@ Source1:	sendfile-xinetd
 #patch0 sent upstream (Kharec)
 Patch0:		sendfile-2.1b-fix-str-fmt.patch
 Requires:	xinetd
+BuildRequires:	make
 BuildRequires:	readline-devel
 
 %description
