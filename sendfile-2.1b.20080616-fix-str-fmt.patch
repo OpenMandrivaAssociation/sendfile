@@ -1,8 +1,8 @@
 Index: src/sendmsg.c
 ===================================================================
---- src/sendmsg.c
-+++ src/sendmsg.c	2010-02-24 10:24:11.000000000 +0100
-@@ -333,7 +333,7 @@
+--- src/sendmsg.c	2008-06-16 15:10:29.000000000 +0200
++++ src/sendmsg.c	2026-08-03 04:06:36.995107118 +0200
+@@ -332,7 +332,7 @@
  	      
  	      /* mark current tty as active for receiving */
  	      if ((outf=rfopen(msgcf,"w"))) {
@@ -13,8 +13,8 @@ Index: src/sendmsg.c
  	      
 Index: src/receive.c
 ===================================================================
---- src/receive.c
-+++ src/receive.c	2010-02-24 10:26:50.000000000 +0100
+--- src/receive.c	2008-06-16 15:42:18.000000000 +0200
++++ src/receive.c	2026-08-03 04:06:36.995201729 +0200
 @@ -968,7 +968,7 @@
      /* loop over all files in tar archive */
      while (fgetl(line,pp)) {

@@ -2,15 +2,15 @@
 
 Summary:	Asynchronous file transfer service
 Name:		sendfile
-Version:	2.1b
-Release:	4
+Version:	2.1b.20080616
+Release:	1
 License:	GPLv2
 Group:		Networking/File transfer
 URL:		https://www.belwue.de/projekte/saft/sendfile.html
 Source:		%{name}-%{version}.tar.bz2
 Source1:	sendfile-xinetd
 #patch0 sent upstream (Kharec)
-Patch0:		sendfile-2.1b-fix-str-fmt.patch
+Patch0:		sendfile-2.1b.20080616-fix-str-fmt.patch
 Requires:	xinetd
 BuildRequires:	make
 BuildRequires:	readline-devel
@@ -33,8 +33,8 @@ The sendfile package contains 5 main programs:
 
 
 %prep
-%setup -q
-%patch0 -p0
+%setup -q -n sendfile-2.1b
+%patch -P0 -p0
 %build
 %make CFLAGS="%{optflags}"
 
